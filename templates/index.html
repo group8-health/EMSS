@@ -1,0 +1,53 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EMSS - {{ action|capitalize }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flashes">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  {% if action == "login" %}
+    <h2>Login</h2>
+    <form method="POST" action="{{ url_for('login') }}">
+      <label for="email">Email:</label>
+      <input type="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+  {% elif action == "signup" %}
+    <h2>Sign Up</h2>
+    <form method="POST" action="{{ url_for('signup') }}">
+      <label for="name">Full Name:</label>
+      <input type="text" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+      <label for="area_desk">Area Desk:</label>
+      <input type="text" name="area_desk" required>
+      <label for="photograph">Photograph URL:</label>
+      <input type="text" name="photograph">
+      <label for="role">Role:</label>
+      <select name="role" required>
+        <option value="employee">Employee</option>
+        <option value="manager">Manager</option>
+      </select>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+  {% endif %}
+</body>
+</html>

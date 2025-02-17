@@ -1,0 +1,18 @@
+<!-- templates/manager.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+  <h2>Manager Dashboard</h2>
+  <p>Welcome, {{ user.name }}!</p>
+  <div class="dashboard-menu">
+    <a href="#">Position Location Settings</a>
+    <a href="#">Employees Info</a>
+    <a href="#">Scheduling</a>
+    <a href="#">Reports</a>
+    <a href="#">Notes</a>
+    <a href="#">Coworkers</a>
+    <a href="#">Settings</a>
+  </div>
+  <!-- Add more manager-specific content as needed -->
+</div>
+{% endblock %}

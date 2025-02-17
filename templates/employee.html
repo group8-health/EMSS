@@ -1,0 +1,15 @@
+<!-- templates/employee.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+  <h2>Employee Dashboard</h2>
+  <p>Welcome, {{ user.name }}!</p>
+  <div class="dashboard-menu">
+    <a href="#">Scheduling</a>
+    <a href="#">Announcements</a>
+    <a href="#">Coworkers</a>
+    <a href="#">Settings</a>
+  </div>
+  <!-- Add more employee-specific content as needed -->
+</div>
+{% endblock %}
